@@ -5,7 +5,6 @@
 #include <string.h>
 
 #include <Servo.h>
-#include <SoftwareSerial.h>
 
 RF24 radio(10, 9); // SPI 버스에 nRF24L01 라디오를 설정하기 위해 CE, CSN를 선언.
 const byte address[6] = "00001"; //주소값을 5가지 문자열로 변경할 수 있으며, 송신기와 수신기가 동일한 주소로 해야됨.
@@ -21,7 +20,7 @@ void setup() {
   okservo.attach(10);
   okservo.write(100);
 }
-bool ok = true;
+
 void loop() {
   reciveMode();
   if(radio.available())
